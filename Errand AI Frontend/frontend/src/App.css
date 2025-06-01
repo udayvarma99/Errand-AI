@@ -1,0 +1,339 @@
+/* frontend/src/App.css */
+/* Basic styling for the application */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #f4f7f6;
+  color: #333;
+  margin: 0; /* Remove default body margin */
+}
+
+/* Main App container */
+.App {
+  max-width: 700px;
+  margin: 40px auto; /* Center the container */
+  padding: 25px 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center; /* Center title */
+} /* This brace closes the .App rule correctly */
+
+h1 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* ErrandInput Component Styling */
+.errand-input-container {
+  margin-bottom: 30px;
+}
+
+.errand-input-container textarea {
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: 100%; /* Take full width of container */
+  min-height: 80px;
+  padding: 12px 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit; /* Use body font */
+  margin-bottom: 15px;
+  resize: vertical; /* Allow only vertical resizing */
+  line-height: 1.5;
+}
+
+.errand-input-container textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.errand-input-container button {
+  padding: 10px 20px; /* Slightly smaller padding */
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 5px; /* Add space if buttons wrap */
+}
+
+.errand-input-container button:hover {
+  background-color: #2980b9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.errand-input-container button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ErrandStatus Component Styling */
+.errand-status-container {
+  margin-top: 25px;
+  padding: 20px;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  background-color: #f9fafb;
+  min-height: 100px;
+  text-align: left; /* Align text left within status box */
+}
+
+.status-label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-message {
+  color: #555; /* Default status color */
+  font-weight: 500;
+}
+
+/* Style specific statuses if needed */
+/* e.g., .status-message.processing { color: #f39c12; } */
+
+.status-result {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #dddddd;
+}
+
+.status-result h3, .status-result h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.status-result h4 {
+    font-size: 1.0rem;
+    color: #34495e;
+}
+
+.status-result p, .status-result li {
+    margin-bottom: 8px;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.status-result ul {
+    padding-left: 20px;
+    list-style: disc;
+    margin-top: 5px;
+}
+.status-result small {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+}
+
+.status-error {
+  color: #e74c3c; /* Red for errors */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Loading Spinner Styling */
+.loading-spinner {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 20px 0; /* Adjust margin if needed within status box */
+  /* If used outside status box, use: margin: 20px auto; */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* frontend/src/App.css */
+
+/* --- Keep existing styles for body, .App, h1, components --- */
+/* ... (ErrandInput, ErrandStatus, LoadingSpinner styles) ... */
+
+/* --- Navbar Styles --- */
+.navbar {
+  background-color: #34495e;
+  padding: 1rem 2rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px; /* Space below navbar */
+}
+
+.navbar-brand a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links li {
+  margin-left: 1.5rem;
+}
+
+.navbar-links a,
+.navbar-links button {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links button:hover {
+  color: #bdc3c7;
+}
+
+.logout-button {
+  background-color: #c0392b; /* Red button */
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+.logout-button:hover {
+   background-color: #e74c3c;
+   color: white; /* Keep color white */
+}
+
+
+/* --- Auth Form Styles --- */
+.auth-form-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.auth-form-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="tel"] /* Style tel input too */
+ {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.form-group input:focus {
+   outline: none;
+   border-color: #3498db;
+   box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+
+.auth-form-container button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.auth-form-container button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+.auth-form-container button[type="submit"]:disabled {
+   background-color: #bdc3c7;
+   cursor: not-allowed;
+}
+
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fdd; /* Light red background */
+  padding: 0.7rem;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.auth-switch-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+.auth-switch-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+.auth-switch-link a:hover {
+     text-decoration: underline;
+}
+
+
+/* --- Main Content Area --- */
+.main-content {
+    padding: 0 1rem; /* Add some padding around page content */
+}
+
+/* --- Optional Location Info --- */
+.location-info {
+  color: #27ae60;
+  font-size: 0.9em;
+  margin-top: -20px; /* Adjust positioning */
+  margin-bottom: 20px;
+}
