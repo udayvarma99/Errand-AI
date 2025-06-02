@@ -89,17 +89,6 @@ const PLACEHOLDER_USER_ID_FOR_UNPROTECTED_ERRANDS = '000000000000000000000000';
 // --- Controller Handlers ---
 
 // POST /api/errands - Create and Initiate Errand
-exports.handleNewErrand = async (req, res, next) => {
-    let userIdToAssociate;
-    let userEmailForLog = "ANONYMOUS (Auth Bypassed)";
-
-    if (req.user && req.user._id) {
-        userIdToAssociate = req.user._id; userEmailForLog = req.user.email;
-        console.log(`[handleNewErrand] Authenticated user: ${userEmailForLog}`);
-    } else {
-        console.warn(`[handleNewErrand] No authenticated user on req. Using placeholder. Ensure 'protect' middleware is correctly configured for production.`);
-        userIdToAssociate = PLACEHOLDER_USER_ID_FOR_UNPROTECTED_ERRANDS;
-    }
 
     const { request, location, userPhoneNumber } = req.body;
     const taskId = uuidv4(); // Generate taskId ONCE here
